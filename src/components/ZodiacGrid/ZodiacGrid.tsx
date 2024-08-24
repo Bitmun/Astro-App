@@ -7,13 +7,12 @@ import styles from './ZodiacGrid.module.scss';
 const ZodiacGrid = ({ onZodiacSelect }: ZodiacGridProps) => {
   return (
     <div className={styles.gridWrapper}>
-      {zodiacSigns.map((zodiac) => {
-        const { sign, period } = zodiac;
+      {zodiacSigns.map((zodiacInfo) => {
+        const { sign } = zodiacInfo;
         return (
           <ZodiacCard
-            key={zodiac.sign}
-            sign={sign}
-            period={period}
+            key={sign}
+            zodiacInfo={zodiacInfo}
             onClick={() => onZodiacSelect(sign)}
           />
         );

@@ -1,5 +1,8 @@
 export interface ZodiacCardProps {
-  sign: string;
-  period: string;
+  zodiacInfo: {
+    sign: string;
+    period: string;
+    logo: string;
+  };
   onClick: () => void;
 }

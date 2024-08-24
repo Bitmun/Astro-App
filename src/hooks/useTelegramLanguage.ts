@@ -5,6 +5,7 @@ import i18n from '../i18n';
 const useTelegramLanguage = () => {
   useEffect(() => {
     const userLanguage = window.Telegram.WebApp.initDataUnsafe?.user?.language_code;
+    console.log(window.Telegram);
     if (userLanguage === 'ru') {
       i18n.changeLanguage('ru');
     } else {

@@ -46,7 +46,7 @@ export const HoroscopeModal = ({ sign, onClose }: HoroscopeModalProps) => {
       const handleTouchEnd = (endEvent: TouchEvent) => {
         const touchEndX = endEvent.changedTouches[0].screenX;
 
-        if (touchEndX > touchStartX + 50) {
+        if (touchStartX > touchEndX + 50) {
           onClose();
         }
 
