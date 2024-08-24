@@ -1,40 +1,36 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { useState } from 'react';
 
-import WebApp from "@twa-dev/sdk";
+import { HoroscopeModal } from './components/HoroscopeModal/HoroscopeModal';
+import { LanguageSwitch } from './components/LanguageSwitch/LanguageSwitch';
+import ZodiacGrid from './components/ZodiacGrid/ZodiacGrid';
+import useTelegramLanguage from './hooks/useTelegramLanguage';
+import styles from './App.module.scss';
+import i18n from './i18n';
 
-function App() {
-  const [count, setCount] = useState(0);
+import { I18nextProvider } from 'react-i18next';
+
+export const App = () => {
+  useTelegramLanguage();
+
+  const [selectedZodiac, setSelectedZodiac] = useState<string | null>(null);
+
+  const openHoroscope = (sign: string) => {
+    setSelectedZodiac(sign);
+  };
+
+  const closeHoroscope = () => {
+    setSelectedZodiac(null);
+  };
 
   return (
-    <>
-      <div>
-        <a href='https://vitejs.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
+    <I18nextProvider i18n={i18n}>
+      <div className={styles.mainWrapper}>
+        <LanguageSwitch />
+        <ZodiacGrid onZodiacSelect={openHoroscope} />
+        {selectedZodiac && (
+          <HoroscopeModal sign={selectedZodiac} onClose={closeHoroscope} />
+        )}
       </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-      <div className='card'>
-        <button
-          onClick={() =>
-            WebApp.showAlert(`Hello World! Current count is ${count}`)
-          }
-        >
-          Show Alert
-        </button>
-      </div>
-    </>
+    </I18nextProvider>
   );
-}
-
-export default App;
+};

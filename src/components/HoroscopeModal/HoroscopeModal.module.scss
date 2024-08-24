@@ -1,0 +1,39 @@
+.modalWrapper {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100vh;
+  color: white;
+  background-color: #00000071;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modalContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  min-width: 100%;
+  padding: 2%;
+  gap: 5px;
+  border-radius: 5px;
+  background-color: rgb(83, 83, 219);
+}
+
+.horoscopeText {
+  font-size: 18px;
+}
+
+.backButton {
+  padding: 1% 15%;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(230, 230, 230);
+}
+
+.backButton:hover {
+  background-color: rgb(255, 255, 255);
+}
