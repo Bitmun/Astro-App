@@ -66,8 +66,14 @@ export const HoroscopeModal = ({ sign, onClose }: HoroscopeModalProps) => {
     };
   }, [handleTouchStart]);
 
+  const handleWrapperClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <div className={styles.modalWrapper}>
+    <button className={styles.modalWrapper} onClick={handleWrapperClick}>
       <div className={styles.modalContainer}>
         <h1>{t(sign)}</h1>
         {isLoading ? (
@@ -79,6 +85,6 @@ export const HoroscopeModal = ({ sign, onClose }: HoroscopeModalProps) => {
           {t('back')}
         </button>
       </div>
-    </div>
+    </button>
   );
 };
