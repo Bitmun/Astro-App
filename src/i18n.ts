@@ -18,6 +18,8 @@ const resources = {
       pisces: 'Pisces',
       back: 'Back',
       horoscope: 'Horoscope',
+      today: 'Today',
+      loading: 'Loading...',
     },
   },
   ru: {
@@ -36,6 +38,8 @@ const resources = {
       pisces: 'Рыбы',
       back: 'Назад',
       horoscope: 'Гороскоп',
+      today: 'Сегодня',
+      loading: 'Загрузка...',
     },
   },
 };

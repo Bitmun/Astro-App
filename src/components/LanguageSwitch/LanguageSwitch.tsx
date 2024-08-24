@@ -1,3 +1,5 @@
+import styles from './LanguageSwitch.module.scss';
+
 import { useTranslation } from 'react-i18next';
 
 export const LanguageSwitch = () => {
@@ -9,7 +11,7 @@ export const LanguageSwitch = () => {
   };
 
   return (
-    <button onClick={toggleLanguage}>
+    <button onClick={toggleLanguage} className={styles.switchButton}>
       {i18n.language === 'en' ? 'Switch to Russian' : 'Переключить на английский'}
     </button>
   );
